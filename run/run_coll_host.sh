@@ -7,7 +7,7 @@
 #SBATCH --gpus-per-node=4
 
 #The --nodes option should be updated
-#to use the full-system complement of CPU-only nodes
+#to use the full-system complement of nodes
 
 #The number of NICs(j) per node should be specified here.
 j=1 #NICs per node
@@ -18,7 +18,7 @@ srunopts="--hint=nomultithread --distribution=block:block"
 
 #The paths to OMB and its collective benchmarks
 #should be specified here
-OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc/libexec/osu-micro-benchmarks
+OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc-cpu/libexec/osu-micro-benchmarks
 OMB_COLL=${OMB_DIR}/mpi/collective
 
 

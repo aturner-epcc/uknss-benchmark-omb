@@ -8,11 +8,9 @@
 ##SBATCH -w nid[004074,004138]
 #
 #The -w option specifies which nodes to use for the test,
-#thus controling the number of network hops between them.
+#thus controlling the number of network hops between them.
 #It should be modified for each system because
-#the nid-topology differs with the system architechture.
-#The nodes identified above are maximally distant
-#on Perlmutter's Slingshot network.
+#the nid-topology differs with the system architecture.
 
 #The number of NICs(j) and CPU cores (k) per node
 #should be specified here.
@@ -26,7 +24,7 @@ srunopts="--hint=nomultithread --distribution=block:block"
 
 #The paths to OMB and its point-to-point benchmarks
 #should be specified here
-OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc/libexec/osu-micro-benchmarks
+OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc-cpu/libexec/osu-micro-benchmarks
 OMB_PT2PT=${OMB_DIR}/mpi/pt2pt
 OMB_1SIDE=${OMB_DIR}/mpi/one-sided
 
