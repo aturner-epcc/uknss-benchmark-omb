@@ -18,7 +18,7 @@ a=4 #accelerator devices per node
 
 #The paths to OMB and its point-to-point benchmarks
 #should be specified here
-OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gpu-cuda/libexec/osu-micro-benchmarks
+OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc-cuda/libexec/osu-micro-benchmarks
 OMB_PT2PT=${OMB_DIR}/mpi/pt2pt
 OMB_1SIDE=${OMB_DIR}/mpi/one-sided
 
