@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --name=OMB_p2p_accel
+#SBATCH --job-name=OMB_p2p_accel
 #SBATCH --output=OMB_p2p_accel-%j.out
 #SBATCH --nodes=2
 #SBATCH -t 00:30:00
