@@ -2,7 +2,7 @@
 #SBATCH --job-name=OMB_coll_accel
 #SBATCH --output=OMB_coll_accel-%j.out
 #SBATCH --exclusive
-#SBATCH --nodes=16
+#SBATCH --nodes=512
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
 #
