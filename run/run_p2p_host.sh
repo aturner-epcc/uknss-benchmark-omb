@@ -28,6 +28,14 @@ OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc-cpu/libexec/osu-micro-benchmarks
 OMB_PT2PT=${OMB_DIR}/mpi/pt2pt
 OMB_1SIDE=${OMB_DIR}/mpi/one-sided
 
+module load craype-network-ofi
+module load PrgEnv-gnu 
+module load gcc-native/13.2 
+module load cray-mpich
+module load craype-arm-grace
+module load cray-python
+module load cray-fftw
+
 srun ${srunopts} --nodes=2 --ntasks=2 --cpus-per-task=${twostride} \
      ${OMB_PT2PT}/osu_latency -m 8:8 
 
