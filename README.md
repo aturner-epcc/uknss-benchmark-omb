@@ -152,15 +152,15 @@ the architecture of the target system as follows:
 
 - For point-to-point tests (`run_p2p_[host,accel].sh`),
   specify a pair of maximally distant nodes
-  by setting the `SBATCH -w` option.
+  by setting the `SBATCH -w` option (or equivalent for other schedulers).
   Note that selection of an appropriate pair of nodes
   requires knowing the nodes' placement on the network topology.
-  Other mechanisms for controling node placement (besides `-w`)
+  Other mechanisms for controlling node placement (besides `-w`)
   may be used if available.
 
 - For tests of collective operations (`run_coll_[host,accel].sh`),
   specify the number of nodes in the full system
-  by setting the `SBATCH -N` option.
+  by setting the `SBATCH --nodes` option.
 
 - For point-to-point tests between host processors (`run_p2p_host.sh`),
   specify the number of CPU cores per node
@@ -176,8 +176,8 @@ the architecture of the target system as follows:
   (i.e. `-d[ROCm,CUDA,OpenACC]` ).
 
 Runtime options to control the execution of each test can be viewed by
-supplying the `--help` option. The number of iterations (`-i`) should be
-changed from its default value. The `-x` option should not be used to
+supplying the `--help` option. The number of iterations (`-i`) should not 
+be changed from its default value. The `-x` option should not be used to
 exclude warmup iterations; results should include the warmup iterations.
 If the test is using device memory, then it is enabled by the `-d`
 device option with the appropriate interface (e.g. `-d [ROCm, CUDA,
@@ -185,39 +185,24 @@ OpenACC] D D`).
 
 ## Reporting Results
 
-Note that the benchmark will generate more output data than is
-requested, the offeror needs only to report the benchmark values
-requested. Additional data may be provided if desired.
+The offeror should provide:
 
-The offeror should provide a copy of the Makefile and configuration
-settings used for the benchmark results.
-
-The benchmark should be compiled and run on the compiler and MPI
-environment that will be provided on the proposed machine.
+- Details of any changes made to the OSU micro-benchmark source code
+  and modifications to any build files (e.g. configure scripts, makefiles)
+- Details of the build process for the OSU micro-benchmark software 
+  for both the host-to-host and device-to-device versions
+- Details on how the tests were run, including any batch job submission
+  scripts
+- The benchmark results
 
 ## Example performance data
 
-### ARCHER2
+The following example performance data is from the IsambardAI system
 
-MPI collectives, 256 nodes, 2 MPI processes per node:
-
-```
-Nodes:256 Tasks:512 Per Node:2
-# OSU MPI Allreduce Latency Test v7.5
-# Datatype: MPI_INT.
-# Size       Avg Latency(us)
-8                      33.58
-
-# OSU MPI Allreduce Latency Test v7.5
-# Datatype: MPI_INT.
-# Size       Avg Latency(us)
-26214400            29942.75
-
-# OSU MPI All-to-All Personalized Exchange Latency Test v7.5
-# Datatype: MPI_CHAR.
-# Size       Avg Latency(us)
-1048576             87258.19
-```
+- Point-to-point, accelerator: [example_output/OMB_p2p_accel-2252830.out](example_output/OMB_p2p_accel-2252830.out)
+- Point-to-point, host: [example_output/OMB_p2p_host-2252822.out](example_output/OMB_p2p_host-2252822.out)
+- Collectives, accelerator (512 nodes): [example_output/OMB_coll_accel-2253239.out](example_output/OMB_coll_accel-2253239.out)
+- Collectives, host (512 nodes):
 
 ## License
 
