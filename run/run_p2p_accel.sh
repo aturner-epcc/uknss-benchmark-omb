@@ -5,7 +5,7 @@
 #SBATCH --nodes=2
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
-##SBATCH -w nid[001652,001716]
+#SBATCH -w nid[010001,011317]
 #
 #The -w option specifies which nodes to use for the test,
 #thus controlling the number of network hops between them.

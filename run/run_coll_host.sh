@@ -2,9 +2,10 @@
 #SBATCH --job-name=OMB_coll_host
 #SBATCH --output=OMB_coll_host-%j.out
 #SBATCH --exclusive
-#SBATCH --nodes=16
+#SBATCH --nodes=512
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
+#SBATCH -x nid010798
 
 #The --nodes option should be updated
 #to use the full-system complement of nodes
