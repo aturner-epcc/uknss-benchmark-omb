@@ -1,0 +1,29 @@
+
+The following have been reloaded with a version change:
+  1) gcc-native/14.2 => gcc-native/13.2
+
+
+# OSU MPI-CUDA Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+8                       4.88
+
+# OSU MPI-CUDA Bandwidth Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size      Bandwidth (MB/s)
+1048576             22806.65
+# OSU MPI Multiple Bandwidth / Message Rate Test v7.5.2
+# [ pairs: 4 ] [ window size: 64 ]
+# Datatype: MPI_CHAR.
+# Size                  MB/s        Messages/s
+16384               51334.40        3133203.24
+# OSU MPI Multiple Bandwidth / Message Rate Test v7.5.2
+# [ pairs: 4 ] [ window size: 64 ]
+# Datatype: MPI_CHAR.
+# Size                  MB/s        Messages/s
+16384               50626.23        3089980.10
+# OSU MPI_Get_accumulate latency Test v7.5.2
+# Window creation: MPI_Win_create
+# Synchronization: MPI_Win_lock/unlock
+# Size          Latency (us)
+8                      40.34

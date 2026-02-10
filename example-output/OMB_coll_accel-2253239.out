@@ -1,0 +1,23 @@
+
+The following have been reloaded with a version change:
+  1) gcc-native/14.2 => gcc-native/13.2
+
+Nodes:512 Tasks:2048
+# OSU MPI-CUDA Allreduce Latency Test v7.5.2
+# Datatype: MPI_INT.
+# Size       Avg Latency(us)
+8                     106.61
+
+Nodes:512 Tasks:2048srun: Step created for StepId=2253239.1
+
+# OSU MPI-CUDA Allreduce Latency Test v7.5.2
+# Datatype: MPI_INT.
+# Size       Avg Latency(us)
+26214400             4273.86
+
+Nodes:512 Tasks:2047
+# OSU MPI-CUDA All-to-All Personalized Exchange Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+1048576            198761.36
+
