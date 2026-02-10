@@ -1,11 +1,10 @@
 #!/bin/bash
-#SBATCH -J OMB_p2p_host
-#SBATCH -o OMB_p2p_host-%j.out 
-#SBATCH -N 2
-#SBATCH -C cpu
-#SBATCH -q regular
-#SBATCH -t 00:30:00
-#SBATCH -A nstaff
+#SBATCH --job-name=OMB_p2p_host
+#SBATCH --output=OMB_p2p_host-%j.out 
+#SBATCH --exclusive
+#SBATCH --nodes=2
+#SBATCH --time=00:30:00
+#SBATCH --gpus-per-node=4
 ##SBATCH -w nid[004074,004138]
 #
 #The -w option specifies which nodes to use for the test,
@@ -17,27 +16,32 @@
 
 #The number of NICs(j) and CPU cores (k) per node
 #should be specified here.
-j=1   #NICs per node
-k=128 #Cores per node
+j=4   #NICs per node
+jstride=72 # Stride of tasks between NICs
+k=288 #Cores per node
+twostride=144 # Stride of tasks for 2-task tests
+
+# Specify any additional Slurm options
+srunopts="--hint=nomultithread --distribution=block:block"
 
 #The paths to OMB and its point-to-point benchmarks
 #should be specified here
-OMB_DIR=../libexec/osu-micro-benchmarks
+OMB_DIR=/projects/u6cb/benchmarks/OSU/7.5.2-gcc/libexec/osu-micro-benchmarks
 OMB_PT2PT=${OMB_DIR}/mpi/pt2pt
 OMB_1SIDE=${OMB_DIR}/mpi/one-sided
 
-srun -N 2 -n 2 \
+srun ${srunopts} --nodes=2 --ntasks=2 --cpus-per-task=${twostride} \
      ${OMB_PT2PT}/osu_latency -m 8:8 
 
-srun -N 2 -n 2 \
+srun ${srunopts} --nodes=2 --ntasks=2  --cpus-per-task=${twostride} \
      ${OMB_PT2PT}/osu_bibw -m 1048576:1048576
 
-srun -N 2 --ntasks-per-node=${j} \
+srun ${srunopts} --nodes=2 --ntasks-per-node=${j} --cpus-per-task=${jstride} \
      ${OMB_PT2PT}/osu_mbw_mr -m 16384:16384
 
-srun -N 2 --ntasks-per-node=${k} \
+srun ${srunopts} --nodes=2 --ntasks-per-node=${k} \
      ${OMB_PT2PT}/osu_mbw_mr -m 16384:16384
 
-srun -N 2 -n 2 \
+srun ${srunopts} --nodes=2 --ntasks=2 --cpus-per-task=${twostride} \
      ${OMB_1SIDE}/osu_get_acc_latency -m 8:8 
 

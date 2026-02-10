@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=OMB_coll_accel
 #SBATCH --output=OMB_coll_accel-%j.out
+#SBATCH --exclusive
 #SBATCH --nodes=16
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
-#SBATCH --gpus-per-node=4
 #
-#The -N option should be updated
+#The --nodes option should be updated
 #to use the full-system complement of accelerated nodes
 
 #The number of NICs(j)

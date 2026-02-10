@@ -1,15 +1,16 @@
 #!/bin/bash
 #SBATCH --job-name=OMB_p2p_accel
 #SBATCH --output=OMB_p2p_accel-%j.out
+#SBATCH --exclusive
 #SBATCH --nodes=2
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
 ##SBATCH -w nid[001652,001716]
 #
 #The -w option specifies which nodes to use for the test,
-#thus controling the number of network hops between them.
+#thus controlling the number of network hops between them.
 #It should be modified for each system because
-#the nid-topology differs with the system architechture.
+#the nid-topology differs with the system architecture.
 
 #The number of NICs(j) and accelrators(a) per node
 #should be specified here.
