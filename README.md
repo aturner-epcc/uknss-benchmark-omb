@@ -39,7 +39,7 @@ Stable
 Any modifications made to the source code and build/installation files must be 
 shared as part of the offerer submission.
 
-### Permitted modifications
+### Permitted modifications
 
 The only permitted modifications allowed are those that
 modify the source code or build/installation files to resolve unavoidable compilation or
@@ -106,7 +106,6 @@ As an example, on IsambardAI, MPI jobs are started using the SLURM PMI, and
 the `LOCAL_RANK` may be set using `export LOCAL_RANK=$SLURM_LOCALID`.
 
 ## Running the benchmark
-
 
 ### Required Tests
 
@@ -185,7 +184,7 @@ OpenACC] D D`).
 
 ## Reporting Results
 
-The offeror should provide:
+The bidder should provide:
 
 - Details of any changes made to the OSU micro-benchmark source code
   and modifications to any build files (e.g. configure scripts, makefiles)
