@@ -5,7 +5,6 @@
 #SBATCH --nodes=512
 #SBATCH --time=00:30:00
 #SBATCH --gpus-per-node=4
-#SBATCH -x nid010798
 
 #The --nodes option should be updated
 #to use the full-system complement of nodes
@@ -48,19 +47,19 @@ module load cray-fftw
 echo -n Nodes:$N_any   Tasks:$n_any
 srun ${srunopts} --nodes=${N_any} --ntasks=${n_any} --ntasks-per-node=${j} --cpus-per-task=${jstride} \
      ${OMB_DIR}/get_local_rank  \
-     ${OMB_COLL}/osu_allreduce -m 8:8 -d cuda
+     ${OMB_COLL}/osu_allreduce -m 8:8
 echo
 
 echo -n Nodes:$N_any   Tasks:$n_any
 srun ${srunopts} --nodes=${N_any} --ntasks=${n_any} --ntasks-per-node=${j} --cpus-per-task=${jstride} \
      ${OMB_DIR}/get_local_rank  \
-     ${OMB_COLL}/osu_allreduce -m 26214400:26214400 -d cuda
+     ${OMB_COLL}/osu_allreduce -m 26214400:26214400
 echo
 
 echo -n Nodes:$N_odd   Tasks:$n_odd
 srun ${srunopts} --nodes=${N_odd} --ntasks=${n_odd} --ntasks-per-node=${j} --cpus-per-task=${jstride} \
      ${OMB_DIR}/get_local_rank \
-     ${OMB_COLL}/osu_alltoall -m 1048576:1048576 -d cuda
+     ${OMB_COLL}/osu_alltoall -m 1048576:1048576
 echo
 
 
