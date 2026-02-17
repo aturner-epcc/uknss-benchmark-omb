@@ -36,8 +36,6 @@ module load cray-mpich
 module load cuda/12.6
 module load craype-accel-nvidia90
 module load craype-arm-grace
-module load cray-python
-module load cray-fftw
 
 export MPICH_GPU_SUPPORT_ENABLED=1
 

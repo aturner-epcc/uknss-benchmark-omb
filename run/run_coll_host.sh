@@ -10,7 +10,7 @@
 #to use the full-system complement of nodes
 
 #The number of NICs(j) per node should be specified here.
-j=1 #NICs per node
+j=4 #NICs per node
 jstride=72 # Stride of tasks between NICs
 
 # Specify any additional Slurm options
@@ -41,8 +41,6 @@ module load PrgEnv-gnu
 module load gcc-native/13.2 
 module load cray-mpich
 module load craype-arm-grace
-module load cray-python
-module load cray-fftw
 
 echo -n Nodes:$N_any   Tasks:$n_any
 srun ${srunopts} --nodes=${N_any} --ntasks=${n_any} --ntasks-per-node=${j} --cpus-per-task=${jstride} \

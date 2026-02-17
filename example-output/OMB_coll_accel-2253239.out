@@ -1,7 +1,4 @@
 
-The following have been reloaded with a version change:
-  1) gcc-native/14.2 => gcc-native/13.2
-
 Nodes:512 Tasks:2048
 # OSU MPI-CUDA Allreduce Latency Test v7.5.2
 # Datatype: MPI_INT.

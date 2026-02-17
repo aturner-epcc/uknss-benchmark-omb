@@ -1,0 +1,20 @@
+
+Nodes:512 Tasks:2048
+# OSU MPI Allreduce Latency Test v7.5.2
+# Datatype: MPI_INT.
+# Size       Avg Latency(us)
+8                      64.03
+
+Nodes:512 Tasks:2048srun: Step created for StepId=2345626.1
+
+# OSU MPI Allreduce Latency Test v7.5.2
+# Datatype: MPI_INT.
+# Size       Avg Latency(us)
+26214400            32698.29
+
+Nodes:512 Tasks:2047
+# OSU MPI All-to-All Personalized Exchange Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+1048576            233423.72
+

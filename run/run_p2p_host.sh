@@ -33,8 +33,6 @@ module load PrgEnv-gnu
 module load gcc-native/13.2 
 module load cray-mpich
 module load craype-arm-grace
-module load cray-python
-module load cray-fftw
 
 srun ${srunopts} --nodes=2 --ntasks=2 --cpus-per-task=${twostride} \
      ${OMB_PT2PT}/osu_latency -m 8:8 
